@@ -1,0 +1,55 @@
+<project default="test" name="onepv1">
+	<path id="onepv1.classpath">
+		<pathelement location="bin"/>
+		<pathelement location="libs/json_simple-1.1.jar"/>
+		<pathelement location="libs/junit.jar"/>
+	</path>
+	<target name="init">
+		<mkdir dir="bin"/>
+	</target>
+	<target name="clean">
+		<delete includeemptydirs="true">
+			<fileset dir="bin" includes="**/*"/>
+		</delete>
+	</target>
+
+	<target name="build" depends="init,clean">
+		<javac destdir="bin" includeantruntime="false">
+			<src path="src"/>
+			<classpath refid="onepv1.classpath"/>
+		</javac>
+	</target>
+	<target name="build-test" depends="build">
+		<javac  destdir="bin" includeantruntime="false">
+			<src path="test"/>
+			<classpath refid="onepv1.classpath"/>
+		</javac>
+	</target>
+	<target name="build-examples" depends="build">
+		<javac  destdir="bin" includeantruntime="false">
+			<src path="examples"/>
+			<classpath refid="onepv1.classpath"/>
+		</javac>
+	</target>
+
+	<target name="jar" depends="build">
+		<jar destfile="bin/onepv1.jar"
+         basedir="bin"
+         includes="**/*.class"
+         />
+	</target>
+
+	<target name="run" depends="build-examples">
+		<java classname="ClientOnepExamples" fork="true">
+			<classpath refid="onepv1.classpath"/>
+		</java>
+	</target>
+
+	<target name="test" depends="build-test">
+		<junit fork="yes" >
+			<formatter type="brief" usefile="false" />
+			<test name="OnepUnitTest"/>
+			<classpath refid="onepv1.classpath"/>
+		</junit>
+	</target>
+</project>
