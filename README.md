@@ -17,11 +17,11 @@ Tested with Eclipse 3.5.2/JDK 1.6.0 (Linux).
 2) The 'JSON.simple' toolkit is used to encode/decode json text, please refer to http://code.google.com/p/json-simple/.<br>
 3) For Eclipse IDE, import the directory 'javaonep' as project.<br>
 4) For command line:<br>
- &nbsp; &nbsp;3.1) To create jar file in bin directory, type<br>
+ &nbsp; &nbsp;4.1) To create jar file in bin directory, type<br>
  &nbsp; &nbsp; &nbsp; &nbsp; ant jar<br>
- &nbsp; &nbsp;3.2) To run an example, type<br>
+ &nbsp; &nbsp;4.2) To run an example, type<br>
  &nbsp; &nbsp; &nbsp; &nbsp; ant run<br>
- &nbsp; &nbsp;3.3) To run junit-test cases, type<br>
+ &nbsp; &nbsp;4.3) To run junit-test cases, type<br>
  &nbsp; &nbsp; &nbsp; &nbsp; ant test<br>
 5) To use in your application, add below jar files to your library directory:<br>
  &nbsp; &nbsp; ./bin/onepv1.jar<br>
