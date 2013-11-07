@@ -104,13 +104,11 @@ documentation at http://github.com/exosite/api
 
 ### Release Info
 
-0.2.0 (2013-11-06)
-------------------
+#### 0.2.0 (2013-11-06)
 
 - added version
 - removed deprecated comment and write group APIs
 
-Unversioned release (2011-9-26)
--------------------------------
+#### Unversioned release (2011-9-26)
 
 - initial version
