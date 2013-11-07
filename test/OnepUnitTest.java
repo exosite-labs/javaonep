@@ -1,17 +1,4 @@
-/*=============================================================================
-* OnepUnitTest.java
-* Unit Tests for Onep class.
-* Note that CIK strings ("PUTA40CHARACTER...") need to be replaced with a valid
-* value.
-*==============================================================================
-*
-* Tested with JDK 1.6
-*
-* Copyright (c) 2011, Exosite LLC
-* All rights reserved.
-*/
-
-import java.util.LinkedHashMap;
+/*============================================================================= * OnepUnitTest.java * Unit Tests for Onep class.  * Note that CIK strings ("PUTA40CHARACTER...") need to be replaced with a valid * value.  *============================================================================== * * Tested with JDK 1.6 * * Copyright (c) 2011, Exosite LLC * All rights reserved.  */ import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.Map;
 
@@ -40,21 +27,15 @@ public class OnepUnitTest extends TestCase {
 	}
 
 	protected void setUp() {
-                //NOTE: The easiest way to get a Client Interface Key (CIK - "clientKey") the first time is probably from Exosite Portals https://portals.exosite.com 
+        // NOTE: The easiest way to get a Client Interface Key (CIK - "clientKey") 
+        // the first time is probably from Exosite Portals https://portals.exosite.com 
 		this.cik_ = "PUTA40CHARACTERCIKHERE";
-                //NOTE: Use Onep.listing() to get a client's RIDs
+        // NOTE: Use Onep.listing() to get a client's RIDs
 		this.rid_ = "PUTA40CHARACTERRIDHERE";
 		this.conn_ = new Onep("http://m2.exosite.com/api:v1/rpc/process", 3);
 	}
 
 	protected void tearDown() {
-	}
-	
-	public void testComment() throws OneException{
-		String visibility = "public";
-		String comment = "nothing but comment";
-		Result res = conn_.comment(cik_,rid_,visibility,comment);
-		assertEquals(Result.OK, res.getStatus());		
 	}
 	
 	public void testCreateDrop() throws OneException{
@@ -111,9 +92,9 @@ public class OnepUnitTest extends TestCase {
 		res = conn_.unmap(cik_, alias);
 		assertEquals(Result.OK, res.getStatus());
 		res = conn_.lookup(cik_, "alias", alias);
-		assertEquals("invalid",res.getMessage());		
+		assertEquals("invalid", res.getMessage());		
 		//drop
-		res = conn_.drop(cik_,rid);
+		res = conn_.drop(cik_, rid);
 		assertEquals(Result.OK, res.getStatus());
 	}
 	
@@ -167,28 +148,6 @@ public class OnepUnitTest extends TestCase {
 		assertEquals(Result.OK, res.getStatus());	
 	}
 	
-	public void testWriteGroupData() throws OneException{
-		String alias1 = "X1", alias2 = "X2";
-		int value1 = 5, value2 = 10;
-		Result res = conn_.lookup(cik_, "alias", alias1);
-		assertEquals(Result.OK, res.getStatus());
-		String rid1 = res.getMessage();
-		res = conn_.lookup(cik_, "alias", alias2);
-		assertEquals(Result.OK, res.getStatus());
-		String rid2 = res.getMessage();
-		LinkedList<Object> data1 = new LinkedList<Object>();
-		LinkedList<Object> data2 = new LinkedList<Object>();
-		data1.add(rid1);
-		data1.add(value1);
-		data2.add(rid2);
-		data2.add(value2);
-		LinkedList<Object> entries = new LinkedList<Object>();
-		entries.add(data1);
-		entries.add(data2);
-		res = conn_.write(cik_,entries);
-		assertEquals(Result.OK, res.getStatus());		
-	}	
-
 	public void testRequestException() throws OneException{
 		try{
 			conn_ = new Onep("http://0.0.0.1/api:v1/rpc/process",3);

@@ -93,23 +93,8 @@ public class ClientOnep extends Onep {
 		this.getAllAliasesInfo();	
 	}
 	
-	/** Give a comment string for given alias name.
-	 * 
-	 * @param alias			The alias name of resource.
-	 * @param visibility	The visibility of this comment.
-	 * @param comments		The comment string.
-	 * @return				The Result object.
-	 */	
-	public Result comment(String alias, String visibility, String comments) throws OneException{
-		String rid = this.getRID(alias);
-		return this.comment(cik_, rid, visibility, comments);
-	}
-
 	/** Get all aliases information of client resource.
 	 * 
-	 * @param alias			The alias name of resource.
-	 * @param visibility	The visibility of this comment.
-	 * @param comments		The comment string. 
 	 * @return				The Map of <String alias,String rid>.
 	 */	
 	public Map<String, String> getAllAliasesInfo() throws OneException {

@@ -53,16 +53,6 @@ public class ClientOnepExamples {
 			System.out.println(e.getMessage());
 		}
 		
-		// write group data
-		Map<String, Object> entries = new LinkedHashMap<String, Object>();
-		entries.put("X2", value+1);
-		entries.put("X3", value+2);
-		try {
-			conn.write(entries);
-		} catch (OneException e) {			
-			System.out.println(e.getMessage());
-		}
-		
 		// get all aliases information
 		try {
 			Map<String, String> aliasMap = conn.getAllAliasesInfo();
@@ -86,16 +76,6 @@ public class ClientOnepExamples {
 		try {
 			conn.create("TEST_alias", desc);
 		} catch (OneException e) {
-			System.out.println(e.getMessage());
-		}
-		
-		// comment
-		Map<String, Object> unit = new LinkedHashMap<String, Object>();
-		unit.put("unit", "%");
-		String unitString = JSONValue.toJSONString(unit);
-		try {
-			conn.comment("TEST_alias", "public", unitString);
-		} catch (OneException e) {			
 			System.out.println(e.getMessage());
 		}
 		

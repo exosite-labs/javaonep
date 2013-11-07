@@ -1,0 +1,5 @@
+
+Name: onepv1
+Package-Title: Java One Platform Library
+Package-Version: 0.2.0
+Package-Vendor: Exosite

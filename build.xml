@@ -36,6 +36,7 @@
 		<jar destfile="bin/onepv1.jar"
          basedir="bin"
          includes="**/*.class"
+         manifest="Manifest.txt"
          />
 	</target>
 

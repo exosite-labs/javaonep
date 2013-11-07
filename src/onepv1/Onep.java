@@ -48,26 +48,6 @@ public class Onep {
 		return callRPC(clientkey, "activate", argu);
 	}
 
-	/** Makes a comment entry associated with the calling client and the specified 
-	 * resource ID combination, with the specified visibility. Different clients can
-	 * create different comment entries for the same resource. Each client can create
-	 * one comment per resource of each visibility type.
-	 *  
-	 * @param clientkey		The cik of client.
-	 * @param rid  	        Resource id. 
-	 * @param visibility	Could be "public" or "private".
-	 * @param comment		Comment String
-	 * @return				The Result Object
-	 */	
-	public Result comment(String clientkey, String rid, String visibility, String comment)
-	        throws OneException {
-		LinkedList<Object> argu = new LinkedList<Object>();
-		argu.add(rid);
-		argu.add(visibility);
-		argu.add(comment);
-		return callRPC(clientkey, "comment", argu);
-	}
-	
 	/**Create a One Platform resource of specified Type and Description or Create a clone from an existing One Platform resource.
 	 * 
 	 * @param clientkey		The cik of client.
@@ -302,31 +282,4 @@ public class Onep {
 			throws OneException {
 		return write(clientkey,rid,value,EmptyOption.getInstance());		
 	}	
-
-	/** Writes the given values for the respective resources in the list.
-	 * 
-	 * @param clientkey		The cik of client.
-	 * @param entries		The data array of format [[ResourceID ,Value],...] to be written.		 
-	 * @param options       Options of write data(Currently unused).		
-	 * @return	 			The Result object.
-	 */
-	public Result write(String clientkey, LinkedList<Object> entries, Object options)
-			throws OneException {
-		LinkedList<Object> argu = new LinkedList<Object>();
-		argu.add(entries);
-		argu.add(options);
-		return callRPC(clientkey, "write", argu);
-	}	
-
-	/** Writes the given values for the respective resources in the list.
-	 * 
-	 * @param clientkey		The cik of client.
-	 * @param entries		The data array of format [[ResourceID ,Value],...] to be written.		
-	 * @return	 			The Result object.
-	 */
-	public Result write(String clientkey, LinkedList<Object> entries)
-			throws OneException {
-		return write(clientkey,entries,EmptyOption.getInstance());		
-	}
-	
 }
