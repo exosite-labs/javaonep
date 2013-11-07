@@ -20,6 +20,7 @@ $ ant jar
 ```
 
 To run an example, first enter the CIK of a device (or other client) in examples/ClientOnepExamples.java in place of the text PUTA40CHARACTERCIKHERE. Then create a dataport in that CIK, e.g. using [Exoline](https://github.com/exosite/exoline), and run the example with ant.
+
 ```
 $ exo create <your CIK> --type=dataport --format=integer --alias=X1 --name=X1
 $ ant run
@@ -61,8 +62,6 @@ still exists, you could get the RID this way:
 ```
 $ exo lookup <your CIK> X1
 <RID for dataport with alias X1>
-```
-
 $ ant test
 ```
 
@@ -105,6 +104,13 @@ documentation at http://github.com/exosite/api
 
 ### Release Info
 
-#### Release 2011-09-26
+0.2.0 (2013-11-06)
+------------------
+
+- added version
+- removed deprecated comment and write group APIs
+
+Unversioned release (2011-9-26)
+-------------------------------
 
 - initial version
